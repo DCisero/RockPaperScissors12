@@ -12,8 +12,8 @@ public class Computer extends Player {
 
    }
     public String generateRoshambo() {
-
-       return "rock";
+        String compChoice = Roshambo.ROCK.toString();
+       return compChoice;
     }
 
 }

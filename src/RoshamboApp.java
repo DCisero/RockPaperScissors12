@@ -10,10 +10,14 @@ public class RoshamboApp {
         String userName;
         String choosePlayer;
         String userChoice;
+        String compChoice = "";
+        String randyChoice = "";
         String resultOne = "You lucky winner you!!!";
-        String resultTwo = "You Lose!";
+        String resultTwo = "Awe shucks, you Lose!";
         String resultThree = "We have a Draw!";
+        String answer = "y";
 
+    do {
         System.out.println("Welcome to the classic game of Rock, Paper, Scissors!");
         System.out.println();
 
@@ -22,7 +26,7 @@ public class RoshamboApp {
         userName = scan.next();
 
         //prompt the user to select a player
-        System.out.print("Which player would you like to play? (Computer or Queen): ");
+        System.out.print("Select your opponent (Computer or Randy): ");
         choosePlayer = scan.next();
         System.out.println();
 
@@ -33,9 +37,10 @@ public class RoshamboApp {
         System.out.println();
 
         //validate: if user makes an invalid selection, print error message and prompt again until correct
-        if (!userChoice.equals("rock") && !userChoice.equals("paper") && !userChoice.equals("scissors"))
+        if (!userChoice.equals("rock") && !userChoice.equals("paper") && !userChoice.equals("scissors")) {
             System.out.println("Invalid move, please try again!");
-
+            return;
+        }
 
         //print the player's choice
         System.out.print(userName + ": " + uc.generateRoshambo(userChoice));
@@ -43,24 +48,40 @@ public class RoshamboApp {
 
         //print the opponent's choice
         if (choosePlayer.equalsIgnoreCase("Computer")) {
-            Computer choice1 = new Computer();
-            System.out.println("Computer: " + choice1.generateRoshambo());
+            Computer computer = new Computer();
+            compChoice = computer.generateRoshambo();
+            System.out.println("Computer: " + compChoice);
+        } else if (choosePlayer.equalsIgnoreCase("Randy")) {
+            Randy randy = new Randy();
+            randyChoice = randy.generateRoshambo();
+            System.out.println("Randy: " + randyChoice);
         }
-        else if (choosePlayer.equalsIgnoreCase("Queen")){
-            Queen choice2 = new Queen();
-            System.out.println("Queen: " + choice2.generateRoshambo());
-        }
-
         scan.nextLine();
 
-
         //print the result of the match
-       if (userChoice.equals("paper") && Roshambo.equals("rock")) {
-            //System.out.println("Draw!");
-       }
-
-
-        //create do while loop to allow the player to play until they end the game
+        if (userChoice.equals("paper") && compChoice.equals("rock")) {
+            System.out.println(userName + " " + resultOne);
+        } else if (userChoice.equals("rock") && randyChoice.equals("rock")) {
+            System.out.println(resultThree);
+        } else if (userChoice.equals("scissors") && randyChoice.equals("scissors")) {
+            System.out.println(resultThree);
+        } else if (userChoice.equals("rock") && randyChoice.equals("scissors")) {
+            System.out.println(userChoice + " " + resultOne);
+        } else if (userChoice.equals("rock") && compChoice.equals("rock")) {
+            System.out.println(resultThree);
+        } else if (userChoice.equals("paper") && randyChoice.equals("paper")) {
+            System.out.println(resultThree);
+        } else if (userChoice.equals("scissors") && compChoice.equals("rock")) {
+            System.out.println(userName + " " + resultTwo);
+        } else if (userChoice.equals("scissors") && randyChoice.equals("rock")) {
+            System.out.println(userName + " " + resultTwo);
+        }
+        System.out.println("Try your luck again? (Y/N)");
+        scan.nextLine();
+    }
+         //create do while loop to allow the player to play until they end the game
+        while (answer.equalsIgnoreCase("y"));
+        System.out.println();
 
     }
 }

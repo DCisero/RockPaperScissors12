@@ -8,39 +8,14 @@ public enum Roshambo {
     public String toString() {
         switch (this) {
             case ROCK:
-                return "ROCK";
+                return "rock";
             case PAPER:
-                return "PAPER";
+                return "paper";
             default:
-                return "SCISSORS!";
+                return "scissors";
         }
     }
 
 }
-//}
-//    ROCK {
-//        public String toString() {
-//
-//            return "ROCK";
-//        }
-//
-//    },
-//    PAPER {
-//        public String toString() {
-//
-//            return "PAPER";
-//        }
-//
-//    },
-//    SCISSORS {
-//        public String toString() {
-//
-//            return "SCISSORS";
-//        }
-//    }
-
-//    public String toString() {
-//        return super.toString;
-//    }
 
 

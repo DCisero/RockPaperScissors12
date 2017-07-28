@@ -7,15 +7,6 @@ public class Being extends Player {
     //private String playerName;
     private String userChoice;
 
-//    public String getplayerName() {
-//
-//        return playerName;
-//    }
-//
-//    public void setplayerName(String beingName) {
-//
-//        playerName = beingName;
-//    }
 
     public String generateRoshambo() {
 
@@ -23,6 +14,7 @@ public class Being extends Player {
     }
 
     public String generateRoshambo(String userChoice){
+
         return userChoice;
     }
 }
